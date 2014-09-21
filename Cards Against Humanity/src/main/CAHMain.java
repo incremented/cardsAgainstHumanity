@@ -3,9 +3,6 @@ package main;
 import init.CardsCreator;
 
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 import cards.AnswerCard;
 import cards.HostCard;
@@ -27,9 +24,14 @@ public class CAHMain{
 	public CAHMain(){
 		
 		
-		ExecutorService threadPool = Executors.newFixedThreadPool(1);
+		//ExecutorService threadPool = Executors.newFixedThreadPool(1);
 		
-		CardsCreator cardCrator = new CardsCreator();
+		CardsCreator cardCreator = new CardsCreator();
+		cardCreator.run();
+		
+		this.hostCards = cardCreator.getHostCards();
+		this.answerCards = cardCreator.getAnswerCards();
+		/*
 		threadPool.submit(cardCrator);	
 		
 		try {
@@ -42,6 +44,8 @@ public class CAHMain{
 		
 		this.hostCards = cardCrator.getHostCards();
 		this.answerCards = cardCrator.getAnswerCards();
+		
+		*/
 		
 		for(HostCard h : hostCards){
 			

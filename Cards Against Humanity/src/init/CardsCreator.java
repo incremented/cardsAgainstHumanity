@@ -1,10 +1,9 @@
 package init;
 
+import java.io.FileNotFoundException;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 import cards.AnswerCard;
 import cards.HostCard;
@@ -26,7 +25,21 @@ public class CardsCreator implements Runnable{
 	@Override
 	public void run() {
 
+		HostCardsParser hp = new HostCardsParser();
+		AnswerCardsParser ap = new AnswerCardsParser();
+		
+		try {
+			this.hostCards = hp.call();
+			this.answerCards = ap.call();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		/*
 		Future<List<HostCard>> hostCardThread =  threadPool.submit(new HostCardsParser());
+		 
 		Future<List<AnswerCard>> answerCardThread = threadPool.submit(new AnswerCardsParser());
 		
 		try {
@@ -42,6 +55,7 @@ public class CardsCreator implements Runnable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
 	}
 	
 	
