@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<HostCards>
+
+	<Card id="0" description="Erste Frage">
+		<Kasus>
+			
+		</Kasus>
+	</Card>
+	
+	<Card id="1" description="Zweite Frage">
+	
+	</Card>
+
+</HostCards>
